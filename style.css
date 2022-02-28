@@ -1,0 +1,14 @@
+
+#details{
+    position: relative;
+    display: none;
+    background-color: rgb(255, 254, 254);
+    box-shadow: 0 0 2px 4px whitesmoke;
+    padding: 10px;
+    margin: 20px;
+}
+#close{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
