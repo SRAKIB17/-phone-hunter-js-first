@@ -2,10 +2,13 @@
 const getId = (id) => document.getElementById(id);
 
 
+// for waiting
+
+const wait = (display) =>(getId('waiting').style.display = display)
 
 // get serach value and get phone
 const search = async () => {
-
+    wait('flex')
     const search = getId('search');
     getId('show').innerText = `
     showing result for '${search.value}'`
@@ -52,7 +55,7 @@ const loadDate = (data) => {
         
         `
     });
-
+    wait('none')
 }
 
 

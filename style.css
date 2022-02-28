@@ -4,6 +4,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 #details{
+    border-radius: 10px;
     position: relative;
     display: none;
     background-color: rgb(255, 254, 254);
@@ -23,4 +24,7 @@ body{
    
     transform: scale(1.1);
     transition: all 1s ease;
+}
+#waiting {
+    display: none;
 }
