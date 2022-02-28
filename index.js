@@ -6,11 +6,14 @@ const getId = (id) => document.getElementById(id);
 // get serach value and get phone
 const search = async () => {
 
-    const search = getId('search').value;
-    const url = `https://openapi.programming-hero.com/api/phones?search=${search}`;
+    const search = getId('search');
+    getId('show').innerText = `
+    showing result for '${search.value}'`
+    const url = `https://openapi.programming-hero.com/api/phones?search=${search.value}`;
     const response = await fetch(url);
     const date = await response.json();
-
+    // clear search form 
+    search.value = ''
     loadDate(date.data);
 }
 
@@ -19,15 +22,16 @@ const loadDate = (data) => {
     const mobileDeco = getId('mobile-view');
     mobileDeco.textContent = '';
 
-    if(data.length <= 10){
+    if(data.length <= 20){
         data = data;
     }
     else{
-        data = data.slice(0,10)
+        data = data.slice(0,20)
     }
     data.forEach(getPhone => {
         // console.log(getPhone)
-        mobileDeco.innerHTML += `    
+        mobileDeco.innerHTML += `  
+        
         <div class="col">
             <div class="card h-100">
                 <div class='h-100'>
@@ -62,6 +66,7 @@ const getDetails = async (id)=> {
     const responseDetails = await fetch(url);
     const data = await responseDetails.json();
     const detailsID = getId('details');
+    // showing details decoration display block
     detailsID.style.display = 'block'
     const getData = data.data;
     // get realese date 
