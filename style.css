@@ -12,6 +12,9 @@ body{
     padding: 10px;
     margin: 20px;
 }
+td{
+    font-size: larger;
+}
 #close{
     position: absolute;
     top: 0;

@@ -9,6 +9,9 @@ const wait = (display) =>(getId('waiting').style.display = display)
 // get serach value and get phone
 const search = async () => {
     wait('flex')
+
+    // display details none 
+    getId('details').style.display='none'
     const search = getId('search');
     getId('show').innerText = `
     showing result for '${search.value}'`
@@ -25,11 +28,11 @@ const loadDate = (data) => {
     const mobileDeco = getId('mobile-view');
     mobileDeco.textContent = '';
 
-    if(data.length <= 20){
+    if(data.length <= 100){
         data = data;
     }
     else{
-        data = data.slice(0,20)
+        data = data.slice(0,100)
     }
     data.forEach(getPhone => {
         // console.log(getPhone)
@@ -49,7 +52,7 @@ const loadDate = (data) => {
                     <h5 class="card-title">Brand: ${getPhone.brand}</h5>
                     </div>
                 </div>
-                <button onclick="getDetails('${getPhone.slug}')" class="btn bg-warning h2 text-light w-auto">Details</button>
+                <button onclick="getDetails('${getPhone.slug}')" class="btn bg-warning fs-4 text-light w-auto">Details</button>
             </div>
         </div>
         
@@ -74,6 +77,7 @@ const getDetails = async (id)=> {
     const getData = data.data;
     // get realese date 
     let release = getData.releaseDate;
+    const others = getData.others;
     if(release == '' || !release){
         release = 'Not found'
     }
@@ -118,6 +122,36 @@ const getDetails = async (id)=> {
             <tr>
                 <td>Sensors</td>
                 <td>${getData.mainFeatures.sensors}</td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><b>Others</b></td>
+        
+            </tr>
+            <tr>
+                <td>Bluetooth</td>
+                <td>${others.Bluetooth}</td>
+            </tr>
+
+            <tr>
+                <td>GPS</td>
+                <td>${others.GPS}</td>
+            </tr>
+            <tr>
+                <td>NFC</td>
+                <td>${others.NFC}</td>
+            </tr>
+            <tr>
+                <td>Radio</td>
+                <td>${others.Radio}</td>
+            </tr>
+            <tr>
+                <td>USB</td>
+                <td>${others.USB}</td>
+            </tr>
+            <tr>
+                <td>WLAN</td>
+                <td>${others.WLAN}</td>
             </tr>
     </div>
     `
