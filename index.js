@@ -30,20 +30,25 @@ const loadDate = (data) => {
         mobileDeco.innerHTML += `    
         <div class="col">
             <div class="card h-100">
-                <img src="${getPhone.image}" class="card-img-top img-fluid p-2" alt="...">
-                <div class="card-body">
-                <h2 class="card-title">${getPhone.phone_name}</h2>
+                <div class='h-100'>
                 
-                <h5 class="card-title">Brand: ${getPhone.brand}</h5>
-                <button onclick="getDetails('${getPhone.slug}')" class="btn bg-info h4">Details</button>
+                    <div class='imageDiv'>
+
+                        <img src="${getPhone.image}" class="card-img-top img-fluid p-2 imageProduct" alt="...">
+                    </div>
+                    <div class="card-body">
+                    <h2 class="card-title">${getPhone.phone_name}</h2>
+                
+                    <h5 class="card-title">Brand: ${getPhone.brand}</h5>
+                    </div>
                 </div>
+                <button onclick="getDetails('${getPhone.slug}')" class="btn bg-warning h2 text-light w-auto">Details</button>
             </div>
         </div>
         
         `
     });
-    
-    console.log(data)
+
 }
 
 

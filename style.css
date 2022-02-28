@@ -12,3 +12,11 @@
     top: 0;
     right: 0;
 }
+.imageDiv{
+    overflow: hidden;
+}
+.imageProduct:hover{
+   
+    transform: scale(1.1);
+    transition: all 1s ease;
+}
