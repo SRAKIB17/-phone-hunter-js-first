@@ -73,7 +73,7 @@ const loadDate = (data) => {
     });
     console.log(getMoreData);
     // load more data
-    if(getMoreData.length >= 20){
+    if(getMoreData.length > 20){
         loadMdata = getMoreData.slice(20);
         // console.log(data);
         getId('loadMoreData').style.display = 'block'
