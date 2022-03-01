@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Orbitron&family=Poppins:wght@100;200;500&display=swap');
 body{
+    margin-top: 10px;
+    width: 100%;
     font-family: 'Poppins', sans-serif;
 }
 #details{
@@ -12,8 +14,13 @@ body{
     padding: 10px;
     margin: 20px;
 }
+tr{
+    width: 100%;
+}
 td{
-    font-size: larger;
+    width: 50%;
+    word-wrap: break-word;
+    font-size: large;
 }
 #close{
     position: absolute;
@@ -29,5 +36,8 @@ td{
     transition: all 1s ease;
 }
 #waiting {
+    display: none;
+}
+#notFound{
     display: none;
 }

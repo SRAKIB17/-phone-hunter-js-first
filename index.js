@@ -19,7 +19,16 @@ const search = async () => {
     const response = await fetch(url);
     const date = await response.json();
     // clear search form 
-    search.value = ''
+    search.value = '';
+    // showing not found 
+    if(date.data.length===0){
+        getId('notFound').style.display = 'block';
+    }
+    else{
+        getId('notFound').style.display = 'none';
+
+    }
+
     loadDate(date.data);
 }
 
@@ -73,9 +82,9 @@ const getDetails = async (id)=> {
     const data = await responseDetails.json();
     const detailsID = getId('details');
     // showing details decoration display block
-    detailsID.style.display = 'block'
-    const getData = data.data;
+    detailsID.style.display = 'block';
 
+    const getData = data.data;
     // get realese date 
     let release = getData.releaseDate;
 
