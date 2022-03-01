@@ -2,8 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Orbitron&family=Poppins:wght@100;200;500&display=swap');
 body{
     margin-top: 10px;
+    
     width: 100%;
     font-family: 'Poppins', sans-serif;
+    position: relative;
 }
 #details{
     border-radius: 10px;
@@ -40,4 +42,9 @@ td{
 }
 #notFound{
     display: none;
+}
+#loadMoreData {
+    display: none;
+    position: absolute;
+    right: 0;
 }

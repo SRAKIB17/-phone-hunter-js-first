@@ -31,17 +31,21 @@ const search = async () => {
 
     loadDate(date.data);
 }
+// loadMoreDate
+let loadMdata = [];
 
 // loadDate and decorate mobile phone 
 const loadDate = (data) => {
+    // get data and storage 
+    const getMoreData = data;
     const mobileDeco = getId('mobile-view');
     mobileDeco.textContent = '';
 
-    if(data.length <= 100){
+    if(data.length <= 20){
         data = data;
     }
     else{
-        data = data.slice(0,100)
+        data = data.slice(0,20)
     }
     data.forEach(getPhone => {
         // console.log(getPhone)
@@ -67,10 +71,23 @@ const loadDate = (data) => {
         
         `
     });
+    console.log(getMoreData);
+    // load more data
+    if(getMoreData.length >= 20){
+        loadMdata = getMoreData.slice(20);
+        // console.log(data);
+        getId('loadMoreData').style.display = 'block'
+    }
+    else {
+        getId('loadMoreData').style.display = 'none';
+    }
+    
     wait('none')
 }
 
-
+// const loadMoreDate = (date)=> {
+//     console.log(date)
+// }
 
 
 
