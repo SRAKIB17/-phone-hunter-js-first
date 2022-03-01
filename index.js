@@ -75,8 +75,11 @@ const getDetails = async (id)=> {
     // showing details decoration display block
     detailsID.style.display = 'block'
     const getData = data.data;
+
     // get realese date 
     let release = getData.releaseDate;
+
+    
     const others = getData.others;
     if(release == '' || !release){
         release = 'Not found'
@@ -88,74 +91,78 @@ const getDetails = async (id)=> {
         <i class="fa fa-close" style="font-size:48px;color:red"></i>
     </button>
     <h3><b> Phone details:</b></h3>
-    <div>
         <div class="d-flex flex-column align-items-center justify-content-center">
             <img src="${getData.image}" alt="" class="h-50 w-50">
         </div>
         <h2><b>${getData.name}</b></h2>
         <table class="table table-hover">
-            <tr>
-                <td >Brand</td>
-                <td>${getData.brand}</td>
-            </tr>
-            <tr>
-                <td>First Release</td>
-                <td>${release}</td>
-            </tr>
+            <tbody id='addMore'>
+                <tr>
+                    <td >Brand</td>
+                    <td>${getData.brand}</td>
+                </tr>
+                <tr>
+                    <td>First Release</td>
+                    <td>${release}</td>
+                </tr>
 
-            <!-- for display  -->
-            <tr>
-                <td >Display</td>
-                <td>${getData.mainFeatures.displaySize}</td>
-            </tr>
-            
-            <tr>
-                <td>Chipset</td>
-                <td>${getData.mainFeatures.chipSet}</td>
-            </tr>
+                <!-- for display  -->
+                <tr>
+                    <td >Display</td>
+                    <td>${getData.mainFeatures.displaySize}</td>
+                </tr>
+                
+                <tr>
+                    <td>Chipset</td>
+                    <td>${getData.mainFeatures.chipSet}</td>
+                </tr>
 
-            <tr>
-                <td>Memory</td>
-                <td>${getData.mainFeatures.memory}</td>
-            </tr>
+                <tr>
+                    <td>Memory</td>
+                    <td>${getData.mainFeatures.memory}</td>
+                </tr>
 
-            <tr>
-                <td>Sensors</td>
-                <td>${getData.mainFeatures.sensors}</td>
-            </tr>
-
-            <tr>
-                <td colspan="2"><b>Others</b></td>
-        
-            </tr>
-            <tr>
-                <td>Bluetooth</td>
-                <td>${others.Bluetooth}</td>
-            </tr>
-
-            <tr>
-                <td>GPS</td>
-                <td>${others.GPS}</td>
-            </tr>
-            <tr>
-                <td>NFC</td>
-                <td>${others.NFC}</td>
-            </tr>
-            <tr>
-                <td>Radio</td>
-                <td>${others.Radio}</td>
-            </tr>
-            <tr>
-                <td>USB</td>
-                <td>${others.USB}</td>
-            </tr>
-            <tr>
-                <td>WLAN</td>
-                <td>${others.WLAN}</td>
-            </tr>
-    </div>
+                <tr>
+                    <td>Sensors</td>
+                    <td>${getData.mainFeatures.sensors}</td>
+                </tr>
+            </tbody>
+        </table>
     `
-    console.log(getData)
+
+    if(getData. hasOwnProperty('others')){
+        getId('addMore').innerHTML += `
+        <tr>
+            <td colspan="2"><b>Others</b></td>
+
+        </tr>
+        <tr>
+            <td>Bluetooth</td>
+            <td>${others.Bluetooth}</td>
+        </tr>
+
+        <tr>
+            <td>GPS</td>
+            <td>${others.GPS}</td>
+        </tr>
+        <tr>
+            <td>NFC</td>
+            <td>${others.NFC}</td>
+        </tr>
+        <tr>
+            <td>Radio</td>
+            <td>${others.Radio}</td>
+        </tr>
+        <tr>
+            <td>USB</td>
+            <td>${others.USB}</td>
+        </tr>
+        <tr>
+            <td>WLAN</td>
+            <td>${others.WLAN}</td>
+        </tr>
+        `
+    }
 }
 
 getId('submit-search').onclick = search;
